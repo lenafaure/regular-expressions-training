@@ -78,10 +78,12 @@ $           ⟶ end of the string/line
 ```javascript
 b\w{4}\b
 ```
+
 **Match any four-letter word only with characters in it**
 ```javascript
 \b[A-Za-z]{4}\b
 ```
+
 **Match words between 4 and 6 characters**
 ```javascript
 b\w{4,6}\b
@@ -90,6 +92,11 @@ b\w{4,6}\b
 **Match the word "lynk or "link"**
 ```javascript
 l[yi]nk
+```
+
+**Match a word beginning with a single capital letter followed by one or more lowercase letters**
+```javascript
+\b[A-Z][a-z]+\b
 ```
 
 
