@@ -251,6 +251,10 @@ console.log(s6.split(/\s/)); // ["Unicorns", "and", "rainbows", "and", "cupcakes
 /* split by a space or a comma */
 var s7 = "Unicorns, and rainbows, and cupcakes";
 console.log(s7.split(/[,\s]+/)); // ["Unicorns", "and", "rainbows", "and", "cupcakes"]
+
+/* if I put capturing parentheses around the delimiter regex, those delimiters that the text are split up by are saved into the array */
+var s8 = "Unicorns, and rainbows, and cupcakes";
+console.log(s8.split(/(\W+)/)); // ["Unicorns", "and", "rainbows", "and", "cupcakes"]
 ```
 
 #### replace()
