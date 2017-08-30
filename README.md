@@ -33,10 +33,18 @@ $           ⟶ end of the string/line
 *Search for a phone number with format 917-555-1234*
 `\d\d\d-\d\d\d-\d\d\d`
 
-*Search for all five-letter words*
-`\w`
+*Match all the words at the beginning of a line*
+`^\w+`
 
+*Match all the words at the end of a line*
+`\w+$`
 
+*Match all single words in a line*
+`^\w+$`
 
+*Match only four-letter words*
+`b\w{4}\b`
 
+*Match words between 4 and 6 characters*
+`b\w{4,6}\b`
 
