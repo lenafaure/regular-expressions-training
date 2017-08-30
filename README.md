@@ -32,6 +32,7 @@ $           ⟶ end of the string/line
 ### Character class
 ```
 []          ⟶ alternation: matches any one of the characters inside the brackets
+[a-z]       ⟶ if the dash is not at the beginning it doesn't mean literal dash but any character a through f
 ```
 
 **Search for a phone number with format 917-555-1234**
@@ -49,6 +50,11 @@ $           ⟶ end of the string/line
 \(?\d{3}[-.)]\d{3}[-.]\d\{4}
 ```
 ⟶ Optionally a literal parenthesis at the beginning, no need to escape parenthesis inside character class
+
+**Search for a phone number that has a 3-numbers sequence of 0 through 5**
+```
+[0-5]{3}
+```
 
 **Match all the words at the beginning of a line**
 ```
