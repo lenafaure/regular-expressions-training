@@ -29,6 +29,12 @@ $           ⟶ end of the string/line
 \b          ⟶ word boundary (finds a match at the beginning or end of a word)
 ```
 
+### Flags
+```
+g           ⟶ searches for all the matching patterns, not only the first one
+i           ⟶ case insensitive
+```
+
 ### Character class
 ```
 []          ⟶ matches any one of the characters inside the brackets
@@ -44,6 +50,21 @@ $           ⟶ end of the string/line
 ()          ⟶ adding a parenthesis inside a regular expression adds a subgroup of strings (the whole match is group 0)
 $n          ⟶ refers to the captured group index when you want to do a replace
 \n          ⟶ refers to the captured group expression index inside a regex
+```
+
+### Regex in JavaScript
+
+```javascript
+
+// Write a new regex:
+var r = /.../;
+
+// Test the regex for true or false:
+r.test("hello"); 
+
+// Returns the matching pattern
+string.match(r);
+
 ```
 
 
@@ -139,3 +160,36 @@ $2 $1
 ```
 ⟶ Match any number of word characters in a row - captured as group 1 - followed by a whitespace, and the specific thing you captured as group 1, match that again (`\1`), with boundaries
 
+**JavaScript examples**
+```javascript
+/* A regex that matches 3 digits in a row */
+var r = /\d{3}/;
+console.log(r.test("hello")); //false
+console.log(r.test("123")); //true
+console.log(r.test("123ABC")); //true because the regex is found within the string
+
+/* A regex that matches exactly 3 digits */
+var r1 = /^\d{3}$/;
+console.log(r1.test("123ABC")); // false
+console.log(r1.test("123")); //true
+
+/* A regex that matches an email adress */
+var r2 = /[\w.]+@\w+\.(net|com|edu)/;
+console.log(r2.test("mail@mail")); // false
+console.log(r2.test("mail@mail.com")); // true
+
+/* A regex that matches the word unicorn */
+var s = "unicorns and rainbows and cupcakes";
+var r3 = /unicorn/;
+console.log(s.match(r3)); // ["unicorn"]
+
+/* A regex that matches all the words in a string */
+var r4 = /[a-z]+/g;
+console.log(s.match(r4)); // ["unicorns", "and", "rainbows", "and", "cupcakes"]
+
+/* A regex that matches all the words case insensitive */
+var s2 = "unicorns and Rainbows and Cupcakes";
+var r5 = /[a-z]+/gi;
+console.log(s2.match(r4)); // ["unicorns", "and", "ainbows", "and", "upcakes"]
+console.log(s2.match(r5)); // ["unicorns", "and", "Rainbows", "and", "Cupcakes"]
+```
