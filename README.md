@@ -29,22 +29,48 @@ $           ⟶ end of the string/line
 \b          ⟶ word boundary (finds a match at the beginning or end of a word)
 ```
 
+### Character class
+```
+[]          ⟶ alternation: matches any one of the characters inside the brackets
+```
 
-*Search for a phone number with format 917-555-1234*
-`\d\d\d-\d\d\d-\d\d\d`
+**Search for a phone number with format 917-555-1234**
+```
+\d{3}-\d{3}-\d\{4}
+```
 
-*Match all the words at the beginning of a line*
-`^\w+`
+**Search for a phone number with format 917-555-1234 Or 917.555.1234**
+```
+\d{3}[-.}\d{3}[-.]\d\{4}
+```
 
-*Match all the words at the end of a line*
-`\w+$`
+**Match all the words at the beginning of a line**
+```
+^\w+
+``` 
 
-*Match all single words in a line*
-`^\w+$`
+**Match all the words at the end of a line**
+```
+\w+$
+```
 
-*Match only four-letter words*
-`b\w{4}\b`
+**Match all single words in a line**
+```
+^\w+$
+```
 
-*Match words between 4 and 6 characters*
-`b\w{4,6}\b`
+**Match only four-letter words**
+```
+b\w{4}\b
+```
+
+**Match words between 4 and 6 characters**
+```
+b\w{4,6}\b
+```
+
+**Match the word "lynk or "link"**
+```
+l[yi]nk
+```
 
