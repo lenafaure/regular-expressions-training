@@ -36,53 +36,53 @@ $           ⟶ end of the string/line
 ```
 
 **Search for a phone number with format 917-555-1234**
-```
+```javascript
 \d{3}-\d{3}-\d\{4}
 ```
 
 **Search for a phone number with format 917-555-1234 Or 917.555.1234**
-```
+```javascript
 \d{3}[-.]\d{3}[-.]\d\{4}
 ```
 
 **Search for a phone number with format 917-555-1234 or 917.555.1234 or (917)555-1234**
-```
+```javascript
 \(?\d{3}[-.)]\d{3}[-.]\d\{4}
 ```
 ⟶ Optionally a literal parenthesis at the beginning, no need to escape parenthesis inside character class
 
 **Search for a phone number that has a 3-numbers sequence of 0 through 5**
-```
+```javascript
 [0-5]{3}
 ```
 
 **Match all the words at the beginning of a line**
-```
+```javascript
 ^\w+
 ``` 
 
 **Match all the words at the end of a line**
-```
+```javascript
 \w+$
 ```
 
 **Match all single words in a line**
-```
+```javascript
 ^\w+$
 ```
 
 **Match only four-letter words**
-```
+```javascript
 b\w{4}\b
 ```
 
 **Match words between 4 and 6 characters**
-```
+```javascript
 b\w{4,6}\b
 ```
 
 **Match the word "lynk or "link"**
-```
+```javascript
 l[yi]nk
 ```
 
