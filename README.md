@@ -31,11 +31,12 @@ $           ⟶ end of the string/line
 
 ### Character class
 ```
-[]          ⟶ alternation: matches any one of the characters inside the brackets
+[]          ⟶ matches any one of the characters inside the brackets
 [-abc]      ⟶ dash at the beginning of the character class is the literal character
 [a-f]       ⟶ if the dash is not at the beginning it doesn't mean literal dash but any character a through f
 [^abc]      ⟶ caret at the beginning of the character class negates the sequence that follows
 [ab^c]      ⟶ if the caret is not at the beginning it means literal character
+(|)         ⟶ matches one of the groups of characters separated by a pipe symbol 
 ```
 
 **Search for a phone number with format 917-555-1234**
@@ -99,6 +100,9 @@ l[yi]nk
 \b[A-Z][a-z]+\b
 ```
 
-
+**Match an email adress with suffix of .com, .edu or .net**
+```javascript
+[\w.]+@\w+\.(net|com|edu)
+```
 
 
