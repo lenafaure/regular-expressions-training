@@ -133,4 +133,9 @@ $2 $1
 ```
 ⟶ Literal square brackets with backslash and question mark to make the quantifier not greedy
 
+**Searching for double words in a row**
+```javascript
+\b(\w+)\s\1\b
+```
+⟶ Match any number of word characters in a row - captured as group 1 - followed by a whitespace, and the specific thing you captured as group 1, match that again (`\1`), with boundaries
 
