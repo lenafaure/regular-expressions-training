@@ -65,6 +65,9 @@ r.test("hello");
 // Returns the matching pattern
 string.match(r);
 
+// The regex executes the string
+r.exec(string);
+
 ```
 
 
@@ -161,6 +164,10 @@ $2 $1
 ⟶ Match any number of word characters in a row - captured as group 1 - followed by a whitespace, and the specific thing you captured as group 1, match that again (`\1`), with boundaries
 
 **JavaScript examples**
+⟶ [Test it in JSBin](https://jsbin.com/teyaniguho/edit?js,console)
+
+#### test() and match()
+
 ```javascript
 /* A regex that matches 3 digits in a row */
 var r = /\d{3}/;
@@ -192,4 +199,43 @@ var s2 = "unicorns and Rainbows and Cupcakes";
 var r5 = /[a-z]+/gi;
 console.log(s2.match(r4)); // ["unicorns", "and", "ainbows", "and", "upcakes"]
 console.log(s2.match(r5)); // ["unicorns", "and", "Rainbows", "and", "Cupcakes"]
+
+/* A regex that matches a phone number format */
+var s3 = "Here are these two numbers 111-2222 and 444-5555"
+var r6 = /\d{3}[-.]\d{4}/g;
+var matches = s3.match(r6);
+
+for (var i = 0; i < matches.length; i++) {
+  console.log(matches[i]);
+}
+
+// "111-2222" "444-5555"
+
+/* A regex that captures the first three digits */
+var s4 = "Here are these two numbers 111-2222 and 444-5555"
+var r7 = /(\d{3})[-.]\d{4}/;
+var matches2 = s4.match(r7);
+
+console.log(matches2); // ["111-2222", "111"] 
+
+// if you are not using the global flag, the match() function will give you the groups as an array
+// if you are using the global flag, you need to use exec()
 ```
+
+#### exec()
+
+```javascript
+/* A regex that executes a string */
+
+var s5 = "Here are these two numbers 111-2222 and 444-5555";
+var r8 = /(\d{3})[-.]\d{4}/g;
+var result = r8.exec(s5);
+
+while (result != null) {
+  result = r8.exec(s5);
+  console.log(result);
+}
+
+// ["111-2222", "111"] ["444-5555", "444"]
+```
+
