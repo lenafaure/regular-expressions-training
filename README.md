@@ -17,7 +17,7 @@
 *           ⟶ 0 or more 
 .*          ⟶ wildcard (matches everything)
 +           ⟶ 1 or more
-?           ⟶ 0 or 1
+?           ⟶ 0 or 1, or make the quantifier not greedy (will stop after match is found)
 {min, max}  ⟶ number of characters between min and max
 {n}         ⟶ specific number of characters "n"
 ```
@@ -120,8 +120,16 @@ $1-xxx-xxxx
 ```
 ⟶ Capturing the first group and replacing the rest
 
-**Reverse Last Name and First Name**
+**Reverse Last Name and First Name written in format "Lastname, Firstname"**
 ```javascript
 (\w+),\s+(\w+)
 $2 $1
 ```
+
+**Matching links in markdown with format `[Google](http://google.com)` and translate into html**
+```javascript
+\[(.*?)]\((http.*?)\)
+<a href="$2">$1</a>
+```
+⟶ Literal square brackets with backslash and question mark to make the quantifier not greedy
+
