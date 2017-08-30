@@ -39,12 +39,20 @@ $           ⟶ end of the string/line
 (|)         ⟶ matches one of the groups of characters separated by a pipe symbol 
 ```
 
+### Capturing Groups
+```
+()          ⟶ adding a parenthesis inside a regular expression adds a subgroup of strings (the whole match is group 0)
+$n          ⟶ refers to the captured group index when you want to do a replace
+\n          ⟶ refers to the captured group expression index inside a regex
+```
+
+
 **Search for a phone number with format 917-555-1234**
 ```javascript
 \d{3}-\d{3}-\d\{4}
 ```
 
-**Search for a phone number with format 917-555-1234 Or 917.555.1234**
+**Search for a phone number with format 917-555-1234 or 917.555.1234**
 ```javascript
 \d{3}[-.]\d{3}[-.]\d\{4}
 ```
@@ -55,7 +63,7 @@ $           ⟶ end of the string/line
 ```
 ⟶ Optionally a literal parenthesis at the beginning, no need to escape parenthesis inside character class
 
-**Search for a phone number that has a 3-numbers sequence of 0 through 5**
+**Search for a number that has a 3-numbers sequence of 0 through 5**
 ```javascript
 [0-5]{3}
 ```
@@ -105,4 +113,15 @@ l[yi]nk
 [\w.]+@\w+\.(net|com|edu)
 ```
 
+**Find and replace phone number with the three phone number format by 917-xxx-xxxx**
+```javascript
+\(?(\d{3})[-.)]\d{3}[-.]\d\{4}
+$1-xxx-xxxx
+```
+⟶ Capturing the first group and replacing the rest
 
+**Reverse Last Name and First Name**
+```javascript
+(\w+),\s+(\w+)
+$2 $1
+```
