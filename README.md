@@ -32,7 +32,10 @@ $           ⟶ end of the string/line
 ### Character class
 ```
 []          ⟶ alternation: matches any one of the characters inside the brackets
-[a-z]       ⟶ if the dash is not at the beginning it doesn't mean literal dash but any character a through f
+[-abc]      ⟶ dash at the beginning of the character class is the literal character
+[a-f]       ⟶ if the dash is not at the beginning it doesn't mean literal dash but any character a through f
+[^abc]      ⟶ caret at the beginning of the character class negates the sequence that follows
+[ab^c]      ⟶ if the caret is not at the beginning it means literal character
 ```
 
 **Search for a phone number with format 917-555-1234**
@@ -71,11 +74,14 @@ $           ⟶ end of the string/line
 ^\w+$
 ```
 
-**Match only four-letter words**
+**Match only four-letter words (characters and digits)**
 ```javascript
 b\w{4}\b
 ```
-
+**Match any four-letter word only with characters in it**
+```javascript
+\b[A-Za-z]{4}\b
+```
 **Match words between 4 and 6 characters**
 ```javascript
 b\w{4,6}\b
@@ -85,4 +91,7 @@ b\w{4,6}\b
 ```javascript
 l[yi]nk
 ```
+
+
+
 
