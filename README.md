@@ -68,6 +68,8 @@ string.match(r);
 // The regex executes the string
 r.exec(string);
 
+// Splits a given piece of text into "tokens" based on a "delimiter" passed as an argument as defined by a regex
+string.split(r);
 ```
 
 
@@ -239,3 +241,20 @@ while (result != null) {
 // ["111-2222", "111"] ["444-5555", "444"]
 ```
 
+#### split()
+
+```javascript
+/* split by a space */
+var s6 = "Unicorns and rainbows and cupcakes";
+console.log(s6.split(/\s/)); // ["Unicorns", "and", "rainbows", "and", "cupcakes"]
+
+/* split by a space or a comma */
+var s7 = "Unicorns, and rainbows, and cupcakes";
+console.log(s7.split(/[,\s]+/)); // ["Unicorns", "and", "rainbows", "and", "cupcakes"]
+```
+
+#### replace()
+
+```javascript
+
+```
