@@ -41,8 +41,14 @@ $           ⟶ end of the string/line
 
 **Search for a phone number with format 917-555-1234 Or 917.555.1234**
 ```
-\d{3}[-.}\d{3}[-.]\d\{4}
+\d{3}[-.]\d{3}[-.]\d\{4}
 ```
+
+**Search for a phone number with format 917-555-1234 or 917.555.1234 or (917)555-1234**
+```
+\(?\d{3}[-.)]\d{3}[-.]\d\{4}
+```
+⟶ Optionally a literal parenthesis at the beginning, no need to escape parenthesis inside character class
 
 **Match all the words at the beginning of a line**
 ```
